@@ -10,7 +10,7 @@ namespace PasswordGuesstimator {
   public:
     virtual auto character_set() -> const std::unordered_set<char> & = 0;
     virtual auto character_set_size() -> uint64_t                    = 0;
-    virtual auto character_set_regex() -> const std::regex         & = 0;
+    virtual auto character_set_regex() -> const std::regex &         = 0;
   };
 
   class PrintableAscii: public Restriction {
@@ -41,7 +41,7 @@ namespace PasswordGuesstimator {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
     };
-    static inline const std::regex ALPHA_REGEX = std::regex("[a-zA-Z]");
+    static inline const std::regex ALPHA_REGEX = std::regex("[a-zA-Z]+");
 
     inline auto character_set() -> const std::unordered_set<char> & override {
       return CHARACTER_SET;

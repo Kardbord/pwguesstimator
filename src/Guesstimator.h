@@ -30,16 +30,16 @@ namespace PasswordGuesstimator {
     }
 
   private:
-    Err                       m_err;
+    Err m_err;
     std::chrono::milliseconds m_duration;
   };
 
-  auto guesstimate_brute_force_duration(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> GuesstimatorResult;
+  auto guesstimate_brute_force_duration(std::string const &password, std::shared_ptr<Restriction> const &p_restriction) -> GuesstimatorResult;
 
   auto brute_force(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> GuesstimatorResult;
 
-  auto password_meets_restriction(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> bool;
+  auto password_meets_restriction(std::string const &password, std::shared_ptr<Restriction> const &p_restriction) -> bool;
 
-}; // namespace PasswordGuesstimator
+} // namespace PasswordGuesstimator
 
 #endif // GUESSTIMATOR_H

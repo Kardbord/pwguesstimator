@@ -19,5 +19,8 @@ else()
 endif()
 
 include_directories(src)
-set("${CMAKE_PROJECT_NAME}_SRC" src/main.cpp)
+set("${CMAKE_PROJECT_NAME}_SRC"
+  src/main.cpp
+  src/Guesstimator.cpp
+)
 add_executable(${CMAKE_PROJECT_NAME} ${${CMAKE_PROJECT_NAME}_SRC})
