@@ -22,7 +22,7 @@ AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 #Clang11: AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: true
 AllowShortLambdasOnASingleLine: None
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
@@ -95,7 +95,7 @@ SpaceAfterCStyleCast: true
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCpp11BracedList: true
+SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
 SpaceBeforeParens: ControlStatements

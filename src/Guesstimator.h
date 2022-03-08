@@ -16,6 +16,7 @@ namespace PasswordGuesstimator {
     enum class Err {
       ERR_NONE,
       ERR_UNIMPLEMENTED,
+      ERR_NULLPTR,
     };
 
     GuesstimatorResult() = delete;
@@ -33,9 +34,11 @@ namespace PasswordGuesstimator {
     std::chrono::milliseconds m_duration;
   };
 
-  auto guesstimate_brute_force_duration(std::string const &answer, std::shared_ptr<Restriction> const &restriction) -> GuesstimatorResult;
+  auto guesstimate_brute_force_duration(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> GuesstimatorResult;
 
-  auto brute_force(std::string const &answer, std::shared_ptr<Restriction> const &restriction) -> GuesstimatorResult;
+  auto brute_force(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> GuesstimatorResult;
+
+  auto password_meets_restriction(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> bool;
 
 }; // namespace PasswordGuesstimator
 
