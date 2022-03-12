@@ -3,11 +3,12 @@
 
 namespace PasswordGuesstimator {
   auto err_in_val(const Err err, const uint64_t val) -> bool {
-    return (uint64_t(err) & val) == 0;
+    if (err == Err::ERR_NONE && val != static_cast<uint64_t>(Err::ERR_NONE)) return false;
+    return (static_cast<uint64_t>(err) & val) == static_cast<uint64_t>(err);
   }
 
   auto for_err(std::function<bool(const Err)> const &f) -> bool {
-    for (auto err = uint64_t(Err::ERR_FIRST); err < uint32_t(Err::ERR_LAST); err = err << 1) {
+    for (auto err = static_cast<uint64_t>(Err::ERR_FIRST); err < static_cast<uint64_t>(Err::ERR_LAST); err = err == 0 ? 1 : err << 1) {
       if (!f(Err(err))) return false;
     }
     return true;
