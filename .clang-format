@@ -75,7 +75,7 @@ PenaltyBreakBeforeFirstCallParameter: 2
 PenaltyBreakString: 64
 PenaltyExcessCharacter: 0
 PenaltyReturnTypeOnItsOwnLine: 0
-PointerAlignment: Right
+#PointerAlignment: PAS_Right
 ReflowComments: true
 SortIncludes: true
 IncludeCategories:
