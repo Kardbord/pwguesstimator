@@ -7,7 +7,7 @@ auto main() -> int {
   const std::string password = "foobarbaz";
   auto p_restriction         = std::make_shared<PasswordGuesstimator::Alpha>();
 
-  PasswordGuesstimator::Err err = PasswordGuesstimator::Err::ERR_NONE;
+  auto err = static_cast<uint64_t>(PasswordGuesstimator::Err::ERR_NONE);
   std::cout << "Err is " << PasswordGuesstimator::get_err_str(static_cast<uint64_t>(err)) << "\n";
   err = PasswordGuesstimator::guesstimate_brute_force_duration(password, p_restriction);
   std::cout << "Err is " << PasswordGuesstimator::get_err_str(static_cast<uint64_t>(err)) << "\n";
