@@ -18,9 +18,10 @@ else()
   )
 endif()
 
+include_directories(include)
 include_directories(src)
 set("${CMAKE_PROJECT_NAME}_SRC"
-  src/main.cpp
+  main.cpp
   src/Guesstimator.cpp
   src/Err.cpp
 )
