@@ -18,6 +18,9 @@ else()
   )
 endif()
 
+find_package(Boost REQUIRED)
+
+include_directories(${Boost_INCLUDE_DIRS})
 include_directories(include)
 include_directories(src)
 set("${CMAKE_PROJECT_NAME}_SRC"
@@ -26,3 +29,4 @@ set("${CMAKE_PROJECT_NAME}_SRC"
   src/Err.cpp
 )
 add_executable(${CMAKE_PROJECT_NAME} ${${CMAKE_PROJECT_NAME}_SRC})
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Boost::headers)
