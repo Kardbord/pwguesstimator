@@ -32,6 +32,33 @@ namespace PasswordGuesstimator {
 
   auto get_err_str(const uint64_t val) -> std::string;
 
+  auto operator==(Err a, uint64_t b) -> uint64_t;
+  auto operator!=(Err a, uint64_t b) -> uint64_t;
+  auto operator<(Err a, uint64_t b)  -> uint64_t;
+  auto operator>(Err a, uint64_t b)  -> uint64_t;
+  auto operator<=(Err a, uint64_t b) -> uint64_t;
+  auto operator>=(Err a, uint64_t b) -> uint64_t;
+  auto operator==(uint64_t a, Err b) -> uint64_t;
+  auto operator!=(uint64_t a, Err b) -> uint64_t;
+  auto operator<(uint64_t a, Err b)  -> uint64_t;
+  auto operator>(uint64_t a, Err b)  -> uint64_t;
+  auto operator<=(uint64_t a, Err b) -> uint64_t;
+  auto operator>=(uint64_t a, Err b) -> uint64_t;
+
+  auto operator|(Err a, Err b) -> uint64_t;
+
+  auto operator&(Err a, uint64_t b)  -> uint64_t;
+  auto operator|(Err a, uint64_t b)  -> uint64_t;
+  auto operator^(Err a, uint64_t b)  -> uint64_t;
+  auto operator<<(Err a, uint64_t b) -> uint64_t;
+  auto operator>>(Err a, uint64_t b) -> uint64_t;
+
+  auto operator&(Err a, uint32_t b)  -> uint64_t;
+  auto operator|(Err a, uint32_t b)  -> uint64_t;
+  auto operator^(Err a, uint32_t b)  -> uint64_t;
+  auto operator<<(Err a, uint32_t b) -> uint64_t;
+  auto operator>>(Err a, uint32_t b) -> uint64_t;
+
 } // namespace PasswordGuesstimator
 
 #endif // GUESTIMATOR_ERR_H

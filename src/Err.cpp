@@ -3,8 +3,8 @@
 
 namespace PasswordGuesstimator {
   auto err_in_val(const Err err, const uint64_t val) -> bool {
-    if (err == Err::ERR_NONE && val != static_cast<uint64_t>(Err::ERR_NONE)) return false;
-    return (static_cast<uint64_t>(err) & val) == static_cast<uint64_t>(err);
+    if (err == Err::ERR_NONE && val != Err::ERR_NONE) return false;
+    return (err & val) == err;
   }
 
   auto for_err(std::function<bool(const Err)> const &f) -> bool {
@@ -37,4 +37,31 @@ namespace PasswordGuesstimator {
     return err_str;
   }
 
+  auto operator==(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) == b; }
+  auto operator!=(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) != b; }
+  auto operator<(Err a, uint64_t b)  -> uint64_t { return static_cast<uint64_t>(a) <  b; }
+  auto operator>(Err a, uint64_t b)  -> uint64_t { return static_cast<uint64_t>(a) >  b; }
+  auto operator<=(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) <= b; }
+  auto operator>=(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) >= b; }
+  auto operator==(uint64_t a, Err b) -> uint64_t { return a == static_cast<uint64_t>(b); }
+  auto operator!=(uint64_t a, Err b) -> uint64_t { return a != static_cast<uint64_t>(b); }
+  auto operator<(uint64_t a, Err b)  -> uint64_t { return a <  static_cast<uint64_t>(b); }
+  auto operator>(uint64_t a, Err b)  -> uint64_t { return a >  static_cast<uint64_t>(b); }
+  auto operator<=(uint64_t a, Err b) -> uint64_t { return a <= static_cast<uint64_t>(b); }
+  auto operator>=(uint64_t a, Err b) -> uint64_t { return a >= static_cast<uint64_t>(b); }
+
+
+  auto operator|(Err a, Err b)  -> uint64_t { return static_cast<uint64_t>(a) | static_cast<uint64_t>(b); }
+
+  auto operator&(Err a, uint64_t b)  -> uint64_t { return static_cast<uint64_t>(a) & b; }
+  auto operator|(Err a, uint64_t b)  -> uint64_t { return static_cast<uint64_t>(a) | b; }
+  auto operator^(Err a, uint64_t b)  -> uint64_t { return static_cast<uint64_t>(a) ^ b; }
+  auto operator<<(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) << b; }
+  auto operator>>(Err a, uint64_t b) -> uint64_t { return static_cast<uint64_t>(a) >> b; }
+
+  auto operator&(Err a, uint32_t b)  -> uint64_t { return static_cast<uint64_t>(a) & static_cast<uint64_t>(b); }
+  auto operator|(Err a, uint32_t b)  -> uint64_t { return static_cast<uint64_t>(a) | static_cast<uint64_t>(b); }
+  auto operator^(Err a, uint32_t b)  -> uint64_t { return static_cast<uint64_t>(a) ^ static_cast<uint64_t>(b); }
+  auto operator<<(Err a, uint32_t b) -> uint64_t { return static_cast<uint64_t>(a) << static_cast<uint64_t>(b); }
+  auto operator>>(Err a, uint32_t b) -> uint64_t { return static_cast<uint64_t>(a) >> static_cast<uint64_t>(b); }
 } // namespace PasswordGuesstimator
