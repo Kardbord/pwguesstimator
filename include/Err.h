@@ -4,6 +4,7 @@
 #include <functional>
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
 namespace PasswordGuesstimator {
 
@@ -58,6 +59,8 @@ namespace PasswordGuesstimator {
   auto operator^(Err a, uint32_t b)  -> uint64_t;
   auto operator<<(Err a, uint32_t b) -> uint64_t;
   auto operator>>(Err a, uint32_t b) -> uint64_t;
+
+  auto operator<<(std::ostream& os, const Err &err) -> std::ostream&;
 
 } // namespace PasswordGuesstimator
 

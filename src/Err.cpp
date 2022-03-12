@@ -64,4 +64,9 @@ namespace PasswordGuesstimator {
   auto operator^(Err a, uint32_t b)  -> uint64_t { return static_cast<uint64_t>(a) ^ static_cast<uint64_t>(b); }
   auto operator<<(Err a, uint32_t b) -> uint64_t { return static_cast<uint64_t>(a) << static_cast<uint64_t>(b); }
   auto operator>>(Err a, uint32_t b) -> uint64_t { return static_cast<uint64_t>(a) >> static_cast<uint64_t>(b); }
+
+  auto operator<<(std::ostream& os, const Err &err) -> std::ostream& {
+    os << get_err_str(static_cast<uint64_t>(err));
+    return os;
+  }
 } // namespace PasswordGuesstimator
