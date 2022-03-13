@@ -1,5 +1,5 @@
-#ifndef GUESTIMATOR_ERR_H
-#define GUESTIMATOR_ERR_H
+#ifndef GUESSTIMATOR_ERR_H
+#define GUESSTIMATOR_ERR_H
 
 #include <functional>
 #include <string>
@@ -64,4 +64,4 @@ namespace PasswordGuesstimator {
 
 } // namespace PasswordGuesstimator
 
-#endif // GUESTIMATOR_ERR_H
+#endif // GUESSTIMATOR_ERR_H
