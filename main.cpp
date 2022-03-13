@@ -5,7 +5,7 @@
 
 auto main() -> int {
   const std::string password = "foobarbaz";
-  auto p_restriction         = std::make_shared<PasswordGuesstimator::Alpha>();
+  auto p_restriction         = std::make_shared<PasswordGuesstimator::Alpha>(password.length());
 
   auto err      = static_cast<uint64_t>(PasswordGuesstimator::Err::ERR_NONE);
   auto duration = std::chrono::milliseconds();

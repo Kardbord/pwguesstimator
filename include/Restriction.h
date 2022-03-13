@@ -10,11 +10,16 @@ namespace PasswordGuesstimator {
   public:
     virtual auto character_set() -> const std::unordered_set<char> & = 0;
     virtual auto character_set_size() -> uint64_t                    = 0;
-    virtual auto character_set_regex() -> const std::regex &         = 0;
+    virtual auto character_set_regex() -> const std::regex         & = 0;
+    virtual auto min_length() -> uint32_t                            = 0;
   };
 
   class PrintableAscii: public Restriction {
   public:
+    PrintableAscii() = delete;
+    PrintableAscii(const uint32_t min_length): m_min_length(min_length) {
+    }
+
     // ASCII codes 32 to 126 are printable
     static inline const std::unordered_set<char> CHARACTER_SET = {
         ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',',  '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7',
@@ -33,10 +38,20 @@ namespace PasswordGuesstimator {
     inline auto character_set_regex() -> const std::regex & override {
       return PRINTABLE_ASCII_REGEX;
     }
+    inline auto min_length() -> uint32_t override {
+      return m_min_length;
+    }
+
+  private:
+    const uint32_t m_min_length;
   };
 
   class Alpha: public Restriction {
   public:
+    Alpha() = delete;
+    Alpha(const uint32_t min_length): m_min_length(min_length) {
+    }
+
     static inline const std::unordered_set<char> CHARACTER_SET = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -52,10 +67,20 @@ namespace PasswordGuesstimator {
     inline auto character_set_regex() -> const std::regex & override {
       return ALPHA_REGEX;
     }
+    inline auto min_length() -> uint32_t override {
+      return m_min_length;
+    }
+
+  private:
+    const uint32_t m_min_length;
   };
 
   class Numeric: public Restriction {
   public:
+    Numeric() = delete;
+    Numeric(const uint32_t min_length): m_min_length(min_length) {
+    }
+
     static inline const std::unordered_set<char> CHARACTER_SET = {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
     };
@@ -70,10 +95,20 @@ namespace PasswordGuesstimator {
     inline auto character_set_regex() -> const std::regex & override {
       return NUMERIC_REGEX;
     }
+    inline auto min_length() -> uint32_t override {
+      return m_min_length;
+    }
+
+  private:
+    const uint32_t m_min_length;
   };
 
   class AlphaNumeric: public Restriction {
   public:
+    AlphaNumeric() = delete;
+    AlphaNumeric(const uint32_t min_length): m_min_length(min_length) {
+    }
+
     static inline const std::unordered_set<char> CHARACTER_SET = {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
         'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
@@ -90,6 +125,12 @@ namespace PasswordGuesstimator {
     inline auto character_set_regex() -> const std::regex & override {
       return ALPHANUMERIC_REGEX;
     }
+    inline auto min_length() -> uint32_t override {
+      return m_min_length;
+    }
+
+  private:
+    const uint32_t m_min_length;
   };
 
 } // namespace PasswordGuesstimator
