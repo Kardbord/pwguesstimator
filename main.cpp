@@ -12,7 +12,7 @@ auto main() -> int {
     if (err != PasswordGuesstimator::Err::ERR_NONE) {
       std::cerr << "Error during duration guesstimate! " << PasswordGuesstimator::get_err_str(err) << "\n";
     } else {
-      std::cout << "It would take roughly " << duration_s.count() << " seconds to crack \"" << password << "\"\n";
+      std::cout << "It would take roughly " << duration_s.count() << " seconds for an optimal setup to crack \"" << password << "\"\n";
     }
   }
 
