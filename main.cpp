@@ -7,12 +7,22 @@ auto main() -> int {
   const std::string password = "foobarbaz";
   auto p_restriction         = std::make_shared<PasswordGuesstimator::Alpha>(password.length());
 
-  auto err      = static_cast<uint64_t>(PasswordGuesstimator::Err::ERR_NONE);
-  auto duration = std::chrono::milliseconds();
-  std::cout << "Err is " << PasswordGuesstimator::get_err_str(static_cast<uint64_t>(err)) << "\n";
-  std::tie(duration, err) = PasswordGuesstimator::guesstimate_brute_force_duration(password, p_restriction);
-  std::cout << "Err is " << PasswordGuesstimator::get_err_str(static_cast<uint64_t>(err)) << "\n";
-  std::tie(duration, err) = PasswordGuesstimator::brute_force(password, p_restriction);
-  std::cout << "Err is " << PasswordGuesstimator::get_err_str(static_cast<uint64_t>(err)) << "\n";
+  {
+    auto[duration_s, err] = PasswordGuesstimator::guesstimate_brute_force_duration(password, p_restriction);
+    if (err != PasswordGuesstimator::Err::ERR_NONE) {
+      std::cerr << "Error during duration guesstimate! " << PasswordGuesstimator::get_err_str(err) << "\n";
+    } else {
+      std::cout << "It would take roughly " << duration_s.count() << " seconds to crack \"" << password << "\"\n";
+    }
+  }
+
+  {
+    auto[duration_s, err] = PasswordGuesstimator::brute_force(password, p_restriction);
+    if (err != PasswordGuesstimator::Err::ERR_NONE) {
+      std::cerr << "Error during brute force! " << PasswordGuesstimator::get_err_str(err) << "\n";
+    } else {
+      std::cout << "It took us " << duration_s.count() << " seconds to crack " << password << "\n";
+    }
+  }
   return EXIT_SUCCESS;
 }
