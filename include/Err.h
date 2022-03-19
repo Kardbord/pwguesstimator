@@ -11,10 +11,11 @@ namespace PasswordGuesstimator {
   enum class Err : uint64_t {
     ERR_FIRST = 0, // Must always be the first member of the enumeration
 
-    ERR_NONE              = ERR_FIRST,
-    ERR_UNIMPLEMENTED     = 0b1 << 0,
-    ERR_NULLPTR           = 0b1 << 1,
-    ERR_FAILS_RESTRICTONS = 0b1 << 2,
+    ERR_NONE                = ERR_FIRST,
+    ERR_UNIMPLEMENTED       = 0b1 << 0,
+    ERR_NULLPTR             = 0b1 << 1,
+    ERR_FAILS_RESTRICTONS   = 0b1 << 2,
+    ERR_INVALID_RESTRICTION = 0b1 << 3,
 
     ERR_LAST // Must always be the last member of the enumeration
   };
@@ -22,7 +23,8 @@ namespace PasswordGuesstimator {
     {Err::ERR_NONE, "ERR_NONE"},
     {Err::ERR_UNIMPLEMENTED, "ERR_UNIMPLEMENTED"},
     {Err::ERR_NULLPTR, "ERR_NULLPTR"},
-    {Err::ERR_FAILS_RESTRICTONS, "ERR_FAILS_RESTRICTIONS"}
+    {Err::ERR_FAILS_RESTRICTONS, "ERR_FAILS_RESTRICTIONS"},
+    {Err::ERR_INVALID_RESTRICTION, "ERR_INVALID_RESTRICTION"},
   };
 
   // Returns true if the provided function returns true

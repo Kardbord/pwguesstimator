@@ -4,8 +4,8 @@
 #include <string>
 
 auto main() -> int {
-  const std::string password = "foobarbaz";
-  auto p_restriction         = std::make_shared<PasswordGuesstimator::Alpha>(password.length());
+  const std::string password = "0141";
+  auto p_restriction         = std::make_shared<PasswordGuesstimator::AlphaNumeric>(1);
 
   {
     auto[duration_s, err] = PasswordGuesstimator::guesstimate_brute_force_duration(password, p_restriction);

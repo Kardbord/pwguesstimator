@@ -26,19 +26,22 @@ namespace PasswordGuesstimator {
   //
   // Returns a tuple
   // {Guesstimation of how long it will take to brute force the password in seconds, PasswordGuesstimator Err(s) in the form of a uint64}
-  auto guesstimate_brute_force_duration(std::string const &password, std::shared_ptr<Restriction> const &p_restriction) -> std::tuple<std::chrono::seconds, uint64_t>;
+  auto guesstimate_brute_force_duration(std::string const &password, std::shared_ptr<const Restriction> p_restriction) -> std::tuple<std::chrono::seconds, uint64_t>;
 
   // Max threads that will be used by this library's brute_force function.
   const uint32_t MAX_THREADS = std::thread::hardware_concurrency();
 
   // Takes a very naive approach to brute-forcing a given password.
+  // Optionally prints out guesses as they are tried if an ostream is provided.
   //
   // Returns a tuple
   // {Duration of brute force in milliseconds, PasswordGuesstimator Err(s) in the form of a uint64}
-  auto brute_force(std::string const &answer, std::shared_ptr<Restriction> const &p_restriction) -> std::tuple<std::chrono::seconds, uint64_t>;
+  auto brute_force(std::string const &answer, std::shared_ptr<const Restriction> p_restriction, std::ostream *os = nullptr) -> std::tuple<std::chrono::seconds, uint64_t>;
 
   // Checks if a provided password meets a provided Restriction set.
-  auto password_meets_restriction(std::string const &password, std::shared_ptr<Restriction> const &p_restriction) -> bool;
+  //
+  // Returns PasswordGuesstimator::Err::ERR_NONE if the password meets the provided restrictions.
+  auto password_meets_restriction(std::string const &password, std::shared_ptr<const Restriction> p_restriction) -> uint64_t;
 
 } // namespace PasswordGuesstimator
 

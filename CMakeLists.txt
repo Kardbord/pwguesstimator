@@ -27,6 +27,7 @@ set("${CMAKE_PROJECT_NAME}_SRC"
   main.cpp
   src/Guesstimator.cpp
   src/Err.cpp
+  src/Guess.cpp
 )
 add_executable(${CMAKE_PROJECT_NAME} ${${CMAKE_PROJECT_NAME}_SRC})
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Boost::headers)

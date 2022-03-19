@@ -64,7 +64,7 @@ IncludeBlocks: Merge
 #Clang11?: IndentCaseBlocks: true
 IndentCaseLabels: true
 #Clang11: IndentExternBlock: true
-IndentPPDirectives: None
+#IndentPPDirectives: None
 IndentWidth: 2
 IndentWrappedFunctionNames: true
 KeepEmptyLinesAtTheStartOfBlocks: false
