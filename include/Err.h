@@ -2,9 +2,9 @@
 #define GUESSTIMATOR_ERR_H
 
 #include <functional>
+#include <iostream>
 #include <string>
 #include <unordered_map>
-#include <iostream>
 
 namespace PasswordGuesstimator {
 
@@ -20,11 +20,11 @@ namespace PasswordGuesstimator {
     ERR_LAST // Must always be the last member of the enumeration
   };
   inline const std::unordered_map<Err, std::string> ERR_STR_MAP{
-    {Err::ERR_NONE, "ERR_NONE"},
-    {Err::ERR_UNIMPLEMENTED, "ERR_UNIMPLEMENTED"},
-    {Err::ERR_NULLPTR, "ERR_NULLPTR"},
-    {Err::ERR_FAILS_RESTRICTONS, "ERR_FAILS_RESTRICTIONS"},
-    {Err::ERR_INVALID_RESTRICTION, "ERR_INVALID_RESTRICTION"},
+      {Err::ERR_NONE, "ERR_NONE"},
+      {Err::ERR_UNIMPLEMENTED, "ERR_UNIMPLEMENTED"},
+      {Err::ERR_NULLPTR, "ERR_NULLPTR"},
+      {Err::ERR_FAILS_RESTRICTONS, "ERR_FAILS_RESTRICTIONS"},
+      {Err::ERR_INVALID_RESTRICTION, "ERR_INVALID_RESTRICTION"},
   };
 
   // Returns true if the provided function returns true
@@ -37,32 +37,32 @@ namespace PasswordGuesstimator {
 
   auto operator==(Err a, uint64_t b) -> uint64_t;
   auto operator!=(Err a, uint64_t b) -> uint64_t;
-  auto operator<(Err a, uint64_t b)  -> uint64_t;
-  auto operator>(Err a, uint64_t b)  -> uint64_t;
+  auto operator<(Err a, uint64_t b) -> uint64_t;
+  auto operator>(Err a, uint64_t b) -> uint64_t;
   auto operator<=(Err a, uint64_t b) -> uint64_t;
   auto operator>=(Err a, uint64_t b) -> uint64_t;
   auto operator==(uint64_t a, Err b) -> uint64_t;
   auto operator!=(uint64_t a, Err b) -> uint64_t;
-  auto operator<(uint64_t a, Err b)  -> uint64_t;
-  auto operator>(uint64_t a, Err b)  -> uint64_t;
+  auto operator<(uint64_t a, Err b) -> uint64_t;
+  auto operator>(uint64_t a, Err b) -> uint64_t;
   auto operator<=(uint64_t a, Err b) -> uint64_t;
   auto operator>=(uint64_t a, Err b) -> uint64_t;
 
   auto operator|(Err a, Err b) -> uint64_t;
 
-  auto operator&(Err a, uint64_t b)  -> uint64_t;
-  auto operator|(Err a, uint64_t b)  -> uint64_t;
-  auto operator^(Err a, uint64_t b)  -> uint64_t;
+  auto operator&(Err a, uint64_t b) -> uint64_t;
+  auto operator|(Err a, uint64_t b) -> uint64_t;
+  auto operator^(Err a, uint64_t b) -> uint64_t;
   auto operator<<(Err a, uint64_t b) -> uint64_t;
   auto operator>>(Err a, uint64_t b) -> uint64_t;
 
-  auto operator&(Err a, uint32_t b)  -> uint64_t;
-  auto operator|(Err a, uint32_t b)  -> uint64_t;
-  auto operator^(Err a, uint32_t b)  -> uint64_t;
+  auto operator&(Err a, uint32_t b) -> uint64_t;
+  auto operator|(Err a, uint32_t b) -> uint64_t;
+  auto operator^(Err a, uint32_t b) -> uint64_t;
   auto operator<<(Err a, uint32_t b) -> uint64_t;
   auto operator>>(Err a, uint32_t b) -> uint64_t;
 
-  auto operator<<(std::ostream& os, const Err &err) -> std::ostream&;
+  auto operator<<(std::ostream &os, const Err &err) -> std::ostream &;
 
 } // namespace PasswordGuesstimator
 

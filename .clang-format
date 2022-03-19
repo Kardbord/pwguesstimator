@@ -21,9 +21,9 @@ AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 #Clang11: AllowShortEnumsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: true
-AllowShortLambdasOnASingleLine: None
+AllowShortLambdasOnASingleLine: true
 AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
@@ -45,7 +45,7 @@ BraceWrapping:
   BeforeElse: false
   #Clang11: BeforeWhile:           false
   #Clang11: BeforeLambdaBody:      false
-  IndentBraces: true
+  IndentBraces: false
   SplitEmptyFunction: true
   SplitEmptyNamespace: true
   SplitEmptyRecord: true

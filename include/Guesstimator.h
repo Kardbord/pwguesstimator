@@ -30,7 +30,7 @@ namespace PasswordGuesstimator {
 
   // Max threads that will be used by this library's brute_force function.
   // TODO: parallelize brute_force
-  //const uint32_t MAX_THREADS = std::thread::hardware_concurrency();
+  // const uint32_t MAX_THREADS = std::thread::hardware_concurrency();
 
   // Takes a very naive approach to brute-forcing a given password.
   // Optionally prints out guesses as they are tried if an ostream is provided.
