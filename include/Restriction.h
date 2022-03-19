@@ -19,7 +19,6 @@ namespace PasswordGuesstimator {
     auto is_valid() const -> bool {
       if (character_set_size() == 0) return false;
       if (min_length() == 0) return false;
-      if (min_length() > character_set_size()) return false;
       return true;
     }
   };
