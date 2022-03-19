@@ -29,7 +29,8 @@ namespace PasswordGuesstimator {
   auto guesstimate_brute_force_duration(std::string const &password, std::shared_ptr<const Restriction> p_restriction) -> std::tuple<std::chrono::seconds, uint64_t>;
 
   // Max threads that will be used by this library's brute_force function.
-  const uint32_t MAX_THREADS = std::thread::hardware_concurrency();
+  // TODO: parallelize brute_force
+  //const uint32_t MAX_THREADS = std::thread::hardware_concurrency();
 
   // Takes a very naive approach to brute-forcing a given password.
   // Optionally prints out guesses as they are tried if an ostream is provided.
